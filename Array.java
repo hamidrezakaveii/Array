@@ -12,7 +12,7 @@ public static void main(String[] args){
 int[] scoreArray = {66,20, 14, 35, 7, 15};
 for (int i=0; i<scoreArray.length;i++)
 System.out.println("Normal One:"+scoreArray[i]);
-//for (int i= scoreArray.length-1 ;i>=0 ; i--)
-//System.out.println("Reverse one: "+scoreArray[i]);
+for (int i= scoreArray.length-1 ;i>=0 ; i--)
+System.out.println("Reverse one: "+scoreArray[i]);
 }    
 }
