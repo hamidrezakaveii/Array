@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 21, 2018 1:50:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Article" table="ARTICLE" schema="OOP" optimistic-lock="version">
+        <id name="noarticle" type="big_decimal">
+            <column name="NOARTICLE" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="20" />
+        </property>
+        <property name="prixunitaire" type="big_decimal">
+            <column name="PRIXUNITAIRE" precision="10" not-null="true" />
+        </property>
+        <property name="quantiteenstock" type="big_decimal">
+            <column name="QUANTITEENSTOCK" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="lignecommandes" table="LIGNECOMMANDE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NOARTICLE" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="entity.Lignecommande" />
+        </set>
+    </class>
+</hibernate-mapping>
